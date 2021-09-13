@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AboutPhone</string>
+    <string name="maintainer">Unknown</string>
+    <string name="pb_version">v3.0</string>
+    <string name="device_name">Unknown</string>
+    <string name="device_code">Unknown</string>
+    <string name="backcamera">Unknown</string>
+    <string name="devicesoc">Unknown</string>
+
+</resources>
