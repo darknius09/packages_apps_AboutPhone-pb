@@ -37,7 +37,7 @@ public class AboutRedesigned extends AppCompatActivity {
     String  release,
             codeName,
             securityPatch;
-     String  backCam;
+     String  backCam, cores;
      String  soc;
     TextView mai, pb, dn,cn ;
 
@@ -92,6 +92,10 @@ public class AboutRedesigned extends AppCompatActivity {
             backCam="unknown";
         }else{
             backCam = getCamera();
+        }if(getCores().isEmpty()){
+            cores="unknown";
+        }else{
+            cores = getCores();            
         }
 
 
@@ -148,7 +152,7 @@ public class AboutRedesigned extends AppCompatActivity {
         itemList2.add(item);
         item = new AboutSpecsClass(R.drawable.ic_baseline_auto_awesome_mosaic_24, "SOC", soc);
         itemList2.add(item);
-        item = new AboutSpecsClass(R.drawable.ic_baseline_auto_awesome_motion_24, "Cores", String.valueOf(getNumberOfCores()));
+        item = new AboutSpecsClass(R.drawable.ic_baseline_auto_awesome_motion_24, "Cores", cores));
         itemList2.add(item);
         mAdapter.notifyDataSetChanged();
         recyclerview2.setAdapter(mAdapter2);
@@ -368,6 +372,25 @@ public class AboutRedesigned extends AppCompatActivity {
 
     }
 
+    public static String getCores() {
+        try {
+            Process p = Runtime.getRuntime().exec("getprop ro.pb.cores");
+            InputStream is = null;
+            if (p.waitFor() == 0) {
+                is = p.getInputStream();
+            } else {
+                is = p.getErrorStream();
+            }
+            BufferedReader br = new BufferedReader(new InputStreamReader(is),
+                    BUFFER_SIZE);
+            String line = br.readLine();
+            br.close();
+            return line;
+        } catch (Exception ex) {
+            return "";
+        }
+
+    }
 
     public static String getDevice() {
         try {
