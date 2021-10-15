@@ -152,7 +152,7 @@ public class AboutRedesigned extends AppCompatActivity {
         itemList2.add(item);
         item = new AboutSpecsClass(R.drawable.ic_baseline_auto_awesome_mosaic_24, "SOC", soc);
         itemList2.add(item);
-        item = new AboutSpecsClass(R.drawable.ic_baseline_auto_awesome_motion_24, "Cores", cores));
+        item = new AboutSpecsClass(R.drawable.ic_baseline_auto_awesome_motion_24, "Cores", cores);
         itemList2.add(item);
         mAdapter.notifyDataSetChanged();
         recyclerview2.setAdapter(mAdapter2);
